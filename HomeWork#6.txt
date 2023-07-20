@@ -1,0 +1,106 @@
+Home Work #6
+
+1. Задание с магазинами Edeka & Rewe_______________________________________________________________________
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        int isEdekaOpen = 8;
+        int isEdekaClose = 16;
+        int isReweOpen = 12;
+        int isReweClose = 23;
+        Scanner scanner = new Scanner(System.in);
+            System.out.println("Сколько сейчас времени?");
+            int hour = scanner.nextInt();
+            if (hour > isReweClose || hour < isEdekaOpen) {
+            System.out.println("Все магазины закрыты");
+
+        } else {
+            System.out.println("Я могу купить еду в :\n"
+             + "isEdekaOpen: " + canBuyInEdeka(isEdekaOpen, isEdekaClose, hour)
+            + "\nisReweOpen: " + canBuyInRewe(isReweOpen, isReweClose, hour));
+        }
+    }
+
+
+    static boolean canBuyInEdeka(int isEdekaOpen, int isEdekaClose, int hour) {
+        if (hour < isEdekaClose && hour >= isEdekaOpen) {
+            return true;
+
+        } else {
+            return false;
+        }
+
+    }
+        static boolean canBuyInRewe(int isReweOpen, int isReweClose, int hour){
+            if (hour < isReweClose && hour >= isReweOpen) {
+                return true;
+
+            } else {
+                return false;
+            }
+        }
+    }
+
+
+
+2. Задание с выводом в косоль года__________________________________________________________________________
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите какой год : ");
+        int year = scanner.nextInt();
+        if (((year % 4 == 0) && (year % 100 != 0)) || year % 400 == 0) {
+            System.out.println("Год высокосный");
+        } else {
+            System.out.println("Не высокосный");
+        }
+    }
+}
+
+
+
+3. Задание с тремя целыми числами______________________________________________________________________________
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int x, y, z;
+        System.out.println("Введите первое число");
+        x = scanner.nextInt();
+        System.out.println("Введите второе число");
+        y = scanner.nextInt();
+        System.out.println("Введите третье число");
+        z = scanner.nextInt();
+        int max = x;
+        if (y > max) {
+            max = y;
+        }
+        if (z > max) {
+            max = z;
+        }
+        System.out.println("Самое большое число из трёх " + max);
+
+        int min = x;
+        if (y < min) {
+            min = y;
+        }
+        if (z < min) {
+            min = z;
+        }
+        System.out.println("Самое меньшее число из трёх " + min);
+
+        int mid = x;
+        if (y < max && y > min) {
+            mid = y;
+        }
+        if (z < max && z > min) {
+            mid = z;
+        }
+        System.out.println("Среднее число из трёх " + mid);
+        System.out.println("Максимальное число из трёх чисел " + max + "" + mid + "" + min);
+    }
+}
